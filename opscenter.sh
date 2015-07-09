@@ -72,8 +72,8 @@ sudo service opscenterd start
 # Expand an IP range. 10.0.0.5-2;10.0.1.5-2; would be converted to "10.0.0.5 10.0.0.6 10.0.1.5 10.0.1.6"
 expand_ip_range() {
   IFS=';' read -a IP_LIST <<< "$1"
-  COUNT="$((($2)-1))"
-  for (( k=0; k<${COUNT} ; k++))
+
+  for (( k=0; k<$2 ; k++))
   do
     IFS='-' read -a IP_RANGE <<< "${IP_LIST[${k}]}"
     BASE_IP=`echo ${IP_RANGE[0]} | cut -d"." -f1-3`
