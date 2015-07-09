@@ -262,7 +262,7 @@
             "value": "[variables('osSettings')]"
           },
           "nodeCount": {
-            "value": "[parameters('clusterNodeCount')]"
+            "value": "[variables('clusterSpec').vmCount]"
           },
           "namespace": {
             "value": "dc1"
