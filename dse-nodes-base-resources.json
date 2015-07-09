@@ -40,7 +40,6 @@
     }
   },
   "variables": {
-    "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('subnet').vnet), '/subnets/', parameters('subnet').name)]",
     "storageAccountName": "[concat(parameters('storageAccountPrefix'), parameters('namespace'))]",
     "vmName": "[concat(parameters('namespace'), 'vm')]"
   },
@@ -110,6 +109,9 @@
           },
           "namePrefix": {
             "value": "[concat('dc',copyindex())]"
+          },
+          "nameIndex": {
+            "value" : "[copyindex()]"
           },
           "availabilitySetName": {
             "value": "[concat(parameters('namespace'), 'set')]"
