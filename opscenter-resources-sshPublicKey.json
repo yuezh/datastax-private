@@ -41,7 +41,7 @@
     "publicIpName": "[concat(parameters('namespace'), 'PublicIp')]",
     "publicIpRef": "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpName'))]",
     "securityGroupName": "[concat(parameters('namespace'), 'nsg')]",
-    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
+    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]"
   },
   "resources": [
     {

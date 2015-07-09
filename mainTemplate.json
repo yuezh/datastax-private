@@ -102,7 +102,7 @@
     "opsCenterTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-resources-',parameters('authenticationType'),'.json')]",
     "opsCenterInstallTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-install-resources.json')]",
     "opsCenterVmSize": "Standard_A1",
-    "clusterSpec" : "[concat('clusterSize',parameters('clusterNodeCount'))]",
+    "clusterSpec" : "[variables(concat('clusterSize',parameters('clusterNodeCount')))]",
     "clusterSize4" : {
       "storageAccountCount" : 1,
       "vmCount" : 4,
@@ -271,7 +271,7 @@
             "value" : "[variables('clusterSpec').storageAccountCount]"
           },
           "templateUrl" : {
-            "value" : "variables('clusterNodesTemplateUrl')"
+            "value" : "[variables('clusterNodesTemplateUrl')]"
           },
           "sshkeyData" : {
             "value" : "[parameters('sshPublicKey')]"

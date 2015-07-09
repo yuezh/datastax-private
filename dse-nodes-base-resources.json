@@ -30,7 +30,7 @@
       "type": "int"
     },
     "storageCount" : {
-      "type" : "int"
+      "type" : "string"
     },
     "templateUrl" : {
       "type" : "string"
@@ -77,8 +77,8 @@
         "count": "[parameters('storageCount')]"
       },
       "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', copyindex(), parameters('storageAccountPrefix'))]"
-        "[concat('Microsoft.Compute/availabilitySets/', parameters('namespace'), 'set')]",
+        "[concat('Microsoft.Storage/storageAccounts/', copyindex(), parameters('storageAccountPrefix'))]",
+        "[concat('Microsoft.Compute/availabilitySets/', parameters('namespace'), 'set')]"
       ],
       "properties": {
         "mode": "Incremental",
