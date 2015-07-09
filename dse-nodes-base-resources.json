@@ -42,11 +42,11 @@
   "variables": {
     "storageAccountName": "[concat(parameters('storageAccountPrefix'), parameters('namespace'))]",
     "vmName": "[concat(parameters('namespace'), 'vm')]",
-    "subnet0" : "[variables(parameters('subnet').dse0)]",
-    "subnet1" : "[variables(parameters('subnet').dse1)]",
-    "subnet2" : "[variables(parameters('subnet').dse2)]",
-    "subnet3" : "[variables(parameters('subnet').dse3)]",
-    "subnet4" : "[variables(parameters('subnet').dse4)]",
+    "subnet0" : "[parameters('subnet').dse0]",
+    "subnet1" : "[parameters('subnet').dse1]",
+    "subnet2" : "[parameters('subnet').dse2]",
+    "subnet3" : "[parameters('subnet').dse3]",
+    "subnet4" : "[parameters('subnet').dse4]",
   },
   "resources": [
     {
