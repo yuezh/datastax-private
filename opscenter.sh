@@ -5,7 +5,7 @@ echo "Setting default parameters"
 CLUSTER_NAME="Test Cluster"
 DSE_VERSION="4.7.0"
 
-while getopts ":n:u:p:e:v:U:P:" opt; do
+while getopts ":n:u:p:e:v:c:U:P:" opt; do
   echo "Option $opt set with value $OPTARG"
   case $opt in
     n)
