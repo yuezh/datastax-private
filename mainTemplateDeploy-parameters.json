@@ -1,0 +1,28 @@
+{
+  "clusterName": {
+    "value": "bencluster22"
+  },
+  "region": {
+    "value": "East Asia"
+  },
+  "clusterNodeCount": {
+    "value": 36
+  },
+  "clusterVmSize": {
+    "value": "Standard_D12"
+  },
+  "adminUsername": {
+    "value": "ben"
+  },
+  "adminPassword": {
+    "value": "foobar123!"
+  },
+  "dataStaxUsername": {
+    "value":"mkennedy_datastax.com"
+  },
+  "dataStaxPassword": {
+    "value": ""
+  },
+  "opsCenterAdminPassword"
+}
+

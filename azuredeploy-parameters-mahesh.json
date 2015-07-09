@@ -1,0 +1,32 @@
+{
+  "clusterName": {
+    "value": "dxwestus04001"
+  },
+  "region": {
+    "value": "wetsus"
+  },
+  "clusterNodeCount": {
+    "value": 4
+  },
+  "clusterVmSize": {
+    "value": "Standard_D11"
+  },
+  "adminUsername": {
+    "value": "cloudguy"
+  },
+  "adminPassword": {
+    "value": "abc_123!"
+  },
+  "datastaxUsername": {
+    "value":"mahthi_microsoft.com"
+  },
+  "datastaxPassword": {
+    "value": "gC0eLGFaDDyMXk8"
+  },
+  "opsCenterAdminPassword":{
+    "value" : "abc_123!"
+  },
+  "authenticationType" : {
+    "value" : "password"
+  }
+}
