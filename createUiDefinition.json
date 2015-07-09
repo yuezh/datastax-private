@@ -10,7 +10,7 @@
         "toolTip": "The name of the new DataStax cluster.",
         "constraints": {
           "required": true,
-          "regex": "[a-z0-9]{3,24}",
+          "regex": "^[a-z0-9]{3,24}$",
           "validationMessage": "Cluster names must be between 3 and 24 characters long, and can contain only numbers and lowercase letters."
         }
       },
@@ -117,7 +117,7 @@
             "toolTip": "Your DataStax account username. You can register at [http://datastax.com](http://datastax.com).",
             "constraints": {
               "required": true,
-              "regex": "[a-zA-Z0-9._]{6,254}",
+              "regex": "^[a-zA-Z0-9._]{6,254}&",
               "validationMessage": "DataStax account usernames must be between 6 and 254 characters long."
             }
           },
@@ -131,7 +131,7 @@
             "toolTip": "Your DataStax account password.",
             "constraints": {
               "required": true,
-              "regex": "[a-zA-Z0-9]{15,15}",
+              "regex": "^[a-zA-Z0-9]{15,15}$",
               "validationMessage": "DataStax account passwords be 15 characters long and can contain only letters and numbers."
             }
           }
