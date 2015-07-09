@@ -47,11 +47,17 @@
           {
             "name": "[parameters('networkSettings').subnet.dse1.name]",
             "properties": {
-              "addressPrefix": "[parameters('networkSettings').subnet.dse1.prefix]"
+              "addressPrefix": "[parameters('networkSettings').subnet.dse0.prefix]"
             }
           },
           {
             "name": "[parameters('networkSettings').subnet.dse2.name]",
+            "properties": {
+              "addressPrefix": "[parameters('networkSettings').subnet.dse1.prefix]"
+            }
+          },
+          {
+            "name": "[parameters('networkSettings').subnet.dse1.name]",
             "properties": {
               "addressPrefix": "[parameters('networkSettings').subnet.dse2.prefix]"
             }
@@ -66,12 +72,6 @@
             "name": "[parameters('networkSettings').subnet.dse1.name]",
             "properties": {
               "addressPrefix": "[parameters('networkSettings').subnet.dse4.prefix]"
-            }
-          },
-          {
-            "name": "[parameters('networkSettings').subnet.dse1.name]",
-            "properties": {
-              "addressPrefix": "[parameters('networkSettings').subnet.dse5.prefix]"
             }
           }
         ]

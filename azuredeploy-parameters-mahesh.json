@@ -3,13 +3,13 @@
     "value": "dxwestus04001"
   },
   "region": {
-    "value": "wetsus"
+    "value": "westus"
   },
   "clusterNodeCount": {
     "value": 4
   },
   "clusterVmSize": {
-    "value": "Standard_D11"
+    "value": "Standard_D12"
   },
   "adminUsername": {
     "value": "cloudguy"

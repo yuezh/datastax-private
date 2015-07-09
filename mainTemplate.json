@@ -95,10 +95,10 @@
     }
   },
   "variables": {
-    "templateBaseUrl": "https://raw.githubusercontent.com/DSPN/azure-arm-dse/master/",
+    "templateBaseUrl": "https://raw.githubusercontent.com/mahthi/datastax-private/master/",
     "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-    "clusterNodesBaseTemplateUrl": "['https://raw.githubusercontent.com/mahthi/azure-arm-dse/master/', 'dse-nodes-base-resources.json')]",
-    "clusterNodesTemplateUrl": "['https://raw.githubusercontent.com/mahthi/azure-arm-dse/master/', 'dse-nodes-specific-resources-',parameters('authenticationType'),'.json')]",
+    "clusterNodesBaseTemplateUrl": "[concat(variables('templateBaseUrl'), 'dse-nodes-base-resources.json')]",
+    "clusterNodesTemplateUrl": "[concat(variables('templateBaseUrl'), 'dse-nodes-specific-resources-',parameters('authenticationType'),'.json')]",
     "opsCenterTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-resources-',parameters('authenticationType'),'.json')]",
     "opsCenterInstallTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-install-resources.json')]",
     "opsCenterVmSize": "Standard_A1",
@@ -200,8 +200,7 @@
         "[concat(variables('templateBaseUrl'), 'vm-disk-utils-0.1.sh')]"
       ]
     },
-    "sharedStorageAccountName": "[concat(parameters('clusterName'),'cmn')]",
-    "nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
+    "sharedStorageAccountName": "[concat(parameters('clusterName'),'cmn')]"
   },
   "resources": [
     {
@@ -276,6 +275,9 @@
           },
           "templateUrl" : {
             "value" : "variables('clusterNodesTemplateUrl')"
+          },
+          "sshkeyData" : {
+            "value" : "[parameters('sshPublicKey')]"
           }
         }
       }
@@ -320,6 +322,9 @@
           },
           "osSettings": {
             "value": "[variables('osSettings')]"
+          },
+          "sshkeyData" : {
+            "value" : "[parameters('sshPublicKey')]"
           }
         }
       }
