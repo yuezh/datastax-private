@@ -110,9 +110,6 @@
           "namePrefix": {
             "value": "[concat('dc',copyindex())]"
           },
-          "nameIndex": {
-            "value" : "[copyindex()]"
-          },
           "availabilitySetName": {
             "value": "[concat(parameters('namespace'), 'set')]"
           },
