@@ -1,6 +1,25 @@
 #!/bin/bash
 # This script installs Oracle Java and DataStax OpsCenter.  It then deploys a DataStax Enterprise cluster using OpsCenter.
 
+# You must be root to run this script
+if [ "${UID}" -ne 0 ];
+then
+    echo "You must be root to run this program." >&2
+    exit 3
+fi
+
+# TEMP FIX - Re-evaluate and remove when possible
+# This is an interim fix for hostname resolution in current VM (If it does not exist add it)
+grep -q "${HOSTNAME}" /etc/hosts
+if [ $? == 0 ];
+then
+  echo "${HOSTNAME}found in /etc/hosts"
+else
+  echo "${HOSTNAME} not found in /etc/hosts"
+  # Append it to the hsots file if not there
+  echo "127.0.0.1 ${HOSTNAME}" >> /etc/hosts
+fi
+
 echo "Setting default parameters"
 CLUSTER_NAME="Test Cluster"
 DSE_VERSION="4.7.0"
