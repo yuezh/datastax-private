@@ -29,13 +29,13 @@
     "nodeCount": {
       "type": "int"
     },
-    "staticIps": {
-      "type": "object"
-    },
     "storageCount" : {
       "type" : "int"
     },
     "templateUrl" : {
+      "type" : "string"
+    },
+    "sshKeyData" : {
       "type" : "string"
     }
   },
@@ -116,6 +116,9 @@
           },
           "storageAccountName" : {
             "value" : "[concat(copyindex(), parameters('storageAccountPrefix'))]"
+          },
+          "sshKeyData" : {
+            "value" : "[parameters('sshKeyData')]"
           }
         }
       }

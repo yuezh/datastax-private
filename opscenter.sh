@@ -69,7 +69,7 @@ sudo service opscenterd start
 #### Now that we have OpsCenter installed, let's configure our cluster. #####
 #############################################################################
 
-# Expand an IP range. 10.0.0.5-3 would be converted to "10.0.0.5 10.0.0.6 10.0.0.7"
+# Expand an IP range. 10.0.0.5-2;10.0.1.5-2; would be converted to "10.0.0.5 10.0.0.6 10.0.1.5 10.0.1.6"
 expand_ip_range() {
   IFS=';' read -a IP_LIST <<< "$1"
   COUNT="$((($2)-1))"
