@@ -30,7 +30,7 @@
       "type": "int"
     },
     "storageCount" : {
-      "type" : "string"
+      "type" : "int"
     },
     "templateUrl" : {
       "type" : "string"
