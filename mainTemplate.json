@@ -268,7 +268,7 @@
             "value": "dc1"
           },
           "storageCount" : {
-            "value" : "[variables('clusterSpec').storageCount]"
+            "value" : "[variables('clusterSpec').storageAccountCount]"
           },
           "templateUrl" : {
             "value" : "variables('clusterNodesTemplateUrl')"
