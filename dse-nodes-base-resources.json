@@ -41,7 +41,12 @@
   },
   "variables": {
     "storageAccountName": "[concat(parameters('storageAccountPrefix'), parameters('namespace'))]",
-    "vmName": "[concat(parameters('namespace'), 'vm')]"
+    "vmName": "[concat(parameters('namespace'), 'vm')]",
+    "subnet0" : "[variables(parameters('subnet').dse0)]",
+    "subnet1" : "[variables(parameters('subnet').dse1)]",
+    "subnet2" : "[variables(parameters('subnet').dse2)]",
+    "subnet3" : "[variables(parameters('subnet').dse3)]",
+    "subnet4" : "[variables(parameters('subnet').dse4)]",
   },
   "resources": [
     {
@@ -99,7 +104,7 @@
             "value": "[parameters('vmSize')]"
           },
           "subnet": {
-            "value": "[variables(parameters('subnet').concat('dse',copyindex()))]"
+            "value": "[variables(concat('subnet',copyindex()))]"
           },
           "osSettings": {
             "value": "[parameters('osSettings')]"
