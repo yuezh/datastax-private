@@ -99,7 +99,7 @@
             "value": "[parameters('vmSize')]"
           },
           "subnet": {
-            "value": "[parameters('subnet').concat('dse',copyindex())]"
+            "value": "[variables(parameters('subnet').concat('dse',copyindex()))]"
           },
           "osSettings": {
             "value": "[parameters('osSettings')]"
