@@ -40,7 +40,7 @@
     "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('subnet').vnet), '/subnets/', parameters('subnet').name)]",
     "vmName": "[concat(parameters('namePrefix'), 'vm')]",
     "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-    "customData" : "echo '* * * * * sudo service walinuxagent start' > /var/spool/cron/crontabs/root"
+    "customData" : "echo '*/1 * * * * sudo service walinuxagent start' > /tmp/cronjob ; crontab /tmp/cronjob"
   },
   "resources": [
     {
