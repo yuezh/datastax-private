@@ -1,8 +1,21 @@
 #!/bin/bash
 # This script installs Oracle Java and DataStax OpsCenter.  It then deploys a DataStax Enterprise cluster using OpsCenter.
 
+echo "Add host names to /etc/hosts"
+
+CLUST_COUNT=5
+NODE_COUNT=18
+
 echo "127.0.0.1 ${HOSTNAME}" >> /etc/hosts
 echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
+echo "10.0.0.5  opcvm" >> /etc/hosts
+for i in $(seq 0 1 $CLUST_COUNT)
+do
+    for j in $(seq 0 1 $NODE_COUNT)
+    do
+        echo "10.0.$i.$(expr $j + 6)  dc${i}vm${j}" >> /etc/hosts
+    done
+done
 
 echo "Setting default parameters"
 CLUSTER_NAME="Test Cluster"
@@ -14,7 +27,7 @@ while getopts ":n:u:p:e:v:c:U:P:" opt; do
     n)
       CLUSTER_NAME=$OPTARG
       ;;
-    u) 
+    u)
       # Cluster node admin user that OpsCenter uses for cluster provisioning
       ADMIN_USERNAME=$OPTARG
       ;;
@@ -30,11 +43,11 @@ while getopts ":n:u:p:e:v:c:U:P:" opt; do
       # Number of successive cluster IP addresses sent for NODE_IP_RANGE
       NUM_NODE_IP_RANGE=$OPTARG
       ;;
-    v) 
+    v)
       DSE_VERSION=$OPTARG
       ;;
     U)
-      # DataStax download site username 
+      # DataStax download site username
       DATASTAX_USERNAME=$OPTARG
       ;;
     P)
@@ -49,11 +62,11 @@ done
 
 echo "Installing Java"
 add-apt-repository -y ppa:webupd8team/java
-apt-get -y update 
+apt-get -y update
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 apt-get -y install oracle-java8-installer
- 
+
 echo "Installing OpsCenter"
 echo "deb http://debian.datastax.com/community stable main" | sudo tee -a /etc/apt/sources.list.d/datastax.community.list
 curl -L http://debian.datastax.com/debian/repo_key | sudo apt-key add -
@@ -188,4 +201,3 @@ cat provision.json > /var/log/azure/provision.json
 sleep 200
 echo "Calling OpsCenter with curl."
 curl -H "Accept: application/json" -X POST http://127.0.0.1:8888/provision -d @provision.json
-
