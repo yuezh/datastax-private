@@ -39,8 +39,7 @@
   "variables": {
     "subnetRef": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('subnet').vnet), '/subnets/', parameters('subnet').name)]",
     "vmName": "[concat(parameters('namePrefix'), 'vm')]",
-    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
-    "customData" : "echo '*/1 * * * * sudo service walinuxagent start' > /tmp/cronjob ; crontab /tmp/cronjob"
+    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]"
   },
   "resources": [
     {
@@ -89,7 +88,7 @@
         "osProfile": {
           "computername": "[concat(parameters('namePrefix'), 'vm', copyIndex())]",
           "adminUsername": "[parameters('adminUsername')]",
-          "customData" : "[base64(parameters('customData'))]",
+          "customData" : "IyEvYmluL2Jhc2gKZWNobyAnKi8xICogKiAqICogc3VkbyBzZXJ2aWNlIHdhbGludXhhZ2VudCBzdGFydCcgPiAvdG1wL2Nyb25qb2IgJiYgY3JvbnRhYiAvdG1wL2Nyb25qb2IK"
           "linuxConfiguration" : {
             "disablePasswordAuthentication" : "true",
             "ssh" : {
